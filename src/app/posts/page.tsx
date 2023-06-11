@@ -1,3 +1,4 @@
+import { BackButton } from "@/components/BackButton";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getAll } from "@/utils/markdown";
@@ -9,6 +10,7 @@ export default async function Posts() {
   return (
     <main>
       <Container>
+        <BackButton />
         <h1 className="text-3xl font-semibold mb-2">Posts</h1>
         <p className="italic">All the articles I've posted.</p>
         <div className="flex flex-col gap-6 mt-6">

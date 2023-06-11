@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { Time } from "@/components/Time";
 import { getAll, get } from "@/utils/markdown";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { BackButton } from "@/components/BackButton";
 
 export async function generateStaticParams() {
   const posts = await getAll("posts");
@@ -18,6 +19,7 @@ export default async function SinglePost({ params }: Params) {
   return (
     <main className="single-post">
       <Container>
+        <BackButton />
         <h1 className="text-2xl text-primary font-semibold mb-2">
           {post.title}
         </h1>
