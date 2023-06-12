@@ -20,9 +20,7 @@ export default async function SinglePost({ params }: Params) {
     <main className="single-post">
       <Container>
         <BackButton />
-        <h1 className="text-2xl text-primary font-semibold mb-2">
-          {post.title}
-        </h1>
+        <h1 className="text-2xl font-semibold mb-2">{post.title}</h1>
         <Time time={post.time} size={16} />
         <Markdown source={post.content} />
       </Container>
