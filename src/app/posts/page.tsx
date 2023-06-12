@@ -17,6 +17,7 @@ export default async function Posts() {
           {posts.map((post) => {
             return (
               <PostCard
+                key={post.slug}
                 slug={post.slug}
                 time={post.time}
                 description={post.description}

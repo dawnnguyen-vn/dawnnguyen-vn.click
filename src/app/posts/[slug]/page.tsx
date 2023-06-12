@@ -2,18 +2,16 @@ import { Markdown } from "@/components/Markdown";
 import { Container } from "@/components/Container";
 import { Time } from "@/components/Time";
 import { getAll, get } from "@/utils/markdown";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { BackButton } from "@/components/BackButton";
 
 export async function generateStaticParams() {
   const posts = await getAll("posts");
-
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default async function SinglePost({ params }: Params) {
+export default async function SinglePost({ params }: any) {
   const { slug } = params;
   const post = await get("posts", slug);
   return (

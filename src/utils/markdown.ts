@@ -6,14 +6,14 @@ import rehypePrism from "rehype-prism-plus";
 
 export const getAll = async (contentType: ContentType) => {
   const posts: Post[] = [];
-  const postsDir = `content/${contentType}`;
+  const postsDir = `public/content/${contentType}`;
   const fileNames = fs
     .readdirSync(postsDir)
     .filter((file) => file.endsWith(".mdx"));
   for (let i = 0; i < fileNames.length; i++) {
     const path = postsDir + "/" + fileNames[i];
     const post = await convertFileToObject(path);
-    post.slug = contentType + "/" + post.slug;
+    post.slug = "/" + post.slug;
     posts.push(post);
   }
 
@@ -21,7 +21,7 @@ export const getAll = async (contentType: ContentType) => {
 };
 
 export async function get(contentType: ContentType, slug: string) {
-  const path = `content/${contentType}/${slug}.mdx`;
+  const path = `/content/${contentType}/${slug}.mdx`;
   const post = await convertFileToObject(path);
 
   return post;
