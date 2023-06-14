@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "../Container";
 import { MenuItem } from "../MenuItem";
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
     <header>
       <Container>
@@ -11,9 +16,21 @@ export function Header() {
             <span className="font-semibold text-2xl">dawnnguyen-vn</span>
           </Link>
           <ul className="flex gap-10">
-            <MenuItem href="#" lable="Projects" />
-            <MenuItem active href="/posts" lable="Posts" />
-            <MenuItem href="#" lable="Contact" />
+            <MenuItem
+              className={pathname == "/projects" ? "active" : ""}
+              href="/projects"
+              lable="Projects"
+            />
+            <MenuItem
+              className={pathname == "/posts" ? "active" : ""}
+              href="/posts"
+              lable="Posts"
+            />
+            <MenuItem
+              className={pathname == "/contact" ? "active" : ""}
+              href="#"
+              lable="Contact"
+            />
           </ul>
         </div>
         <div className="h-[1px] bg-gray-200 w-full"></div>

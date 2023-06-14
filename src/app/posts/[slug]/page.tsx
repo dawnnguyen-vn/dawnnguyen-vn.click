@@ -13,6 +13,7 @@ export async function generateStaticParams() {
 
 export default async function SinglePost({ params }: any) {
   const { slug } = params;
+
   const post = await get("posts", slug);
   return (
     <main className="single-post">
