@@ -2,11 +2,12 @@ import { MenuItem } from "../MenuItem";
 
 type MenuListItem = {
   className: string;
+  pathname: string;
 };
 
-export function MenuListItem({ className }: MenuListItem) {
+export function MenuListItem({ className, pathname }: MenuListItem) {
   return (
-    <ul className="flex flex-col items-center gap-8 pb-8 pt-4">
+    <ul className={className}>
       <MenuItem
         className={pathname == "/projects" ? "active" : ""}
         href="/projects"
