@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "../Container";
 import { MenuItem } from "../MenuItem";
+import { Separate } from "../Separate";
 
 export function Header() {
   const pathname = usePathname();
@@ -33,7 +34,7 @@ export function Header() {
             />
           </ul>
         </div>
-        <div className="h-[1px] bg-gray-200 w-full"></div>
+        <Separate />
       </Container>
     </header>
   );
