@@ -40,6 +40,15 @@ ul li a.active {
   margin-bottom: 1.6rem;
 }
 
+/* programing language color */
+.text-blue-800 {
+  background-color: rgb(30 64 175);
+}
+.text-yellow-700 {
+  background-color: rgb(161 98 7);
+}
+/* programing language color */
+
 code:not([class*="language-"]) {
   background-color: #e5e7eb;
   color: #111827;

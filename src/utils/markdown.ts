@@ -1,4 +1,4 @@
-import { ContentType, Post, PostMeta } from "@/types";
+import { ContentType, Post, PostMeta, Project } from "@/types";
 import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeCodeTitles from "rehype-code-titles";
@@ -44,4 +44,27 @@ const convertFileToObject = async (path: string) => {
     content: object,
   };
   return result;
+};
+
+export const getProjects = async () => {
+  const projects: Project[] = [];
+  const postsDir = `public/content/projects`;
+  const fileNames = fs
+    .readdirSync(postsDir)
+    .filter((file) => file.endsWith(".mdx"));
+  for (let i = 0; i < fileNames.length; i++) {
+    const path = postsDir + "/" + fileNames[i];
+    const fileData = fs.readFileSync(path, "utf8");
+    const object = await serialize<"frontmatter", Project>(fileData, {
+      parseFrontmatter: true,
+    });
+
+    const project: Project = {
+      ...object.frontmatter,
+    };
+
+    projects.push(project);
+  }
+
+  return projects;
 };

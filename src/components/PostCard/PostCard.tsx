@@ -12,7 +12,7 @@ export function PostCard({ slug, title, time, description }: PostCardProps) {
   return (
     <div>
       <Link href={"posts/" + slug}>
-        <h3 className="w-fit mb-1 leading-5 text-lg font-medium text-primary hover:border-b-2 border-dashed border-primary">
+        <h3 className="w-fit mb-1 leading-5 text-lg font-medium text-primary border-b-2 border-dashed border-transparent hover:border-primary">
           {title}
         </h3>
       </Link>

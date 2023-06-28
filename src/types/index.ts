@@ -15,3 +15,9 @@ export type Post = {
   description: string;
   content: MDXRemoteSerializeResult<"frontmatter", PostMeta>;
 };
+
+export type Project = {
+  title: string;
+  link: string;
+  language: string;
+};
